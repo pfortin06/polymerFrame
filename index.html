@@ -1,1 +1,251 @@
-hello world
+<!doctype html>
+
+<html>
+<head>
+  <title>polymerFrame</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta charset="UTF-8">
+
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/font-roboto/roboto.html">
+  <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+  <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+  <link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
+  <link rel="import" href="bower_components/paper-dialog/paper-dialog-transition.html">
+  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="bower_components/core-field/core-field.html">
+  <link rel="import" href="bower_components/core-icon/core-icon.html">
+  <link rel="import" href="bower_components/core-input/core-input.html">
+  <link rel="import" href="bower_components/core-item/core-item.html">
+  <link rel="import" href="bower_components/core-menu/core-menu.html">
+  <link rel="import" href="bower_components/core-dropdown-menu/core-dropdown-menu.html">
+  <link rel="import" href="bower_components/core-tooltip/core-tooltip.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/paper-input/paper-input-decorator.html">
+  <link rel="import" href="bower_components/paper-input/paper-autogrow-textarea.html">
+  <link rel="import" href="bower_components/core-collapse/core-collapse.html">
+  <link rel="import" href="bower_components/core-menu/core-menu.html">
+  <link rel="import" href="bower_components/paper-dropdown/paper-dropdown.html">
+  <link rel="import" href="bower_components/paper-item/paper-item.html">
+  <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+
+  <link rel="stylesheet" href="styles.css">
+
+<script src="main.js"></script>
+
+</head>
+
+<body unresolved>
+
+  <core-header-panel mode="standard" id="core_header_panel">
+      <core-toolbar id="core_toolbar" class="medium-tall" middleJustify="end" horizontal layout justified>
+        <div id="titleDiv" end-justified vertical layout>
+          <h2 id="title">Open Journal System</h2>
+        </div>
+        <div id="conexionDiv" class="middle" self-start horizontal layout center center-justified>
+          <paper-button raised recenteringtouch id="login_button" onclick="toggleSignInDialog();">Sign in</paper-button>
+          <paper-button raised recenteringtouch id="register_button" onclick="toggleRegisterDialog();">register</paper-button>
+        </div>
+        <div id="div" flex></div>
+        <div class="bottom" id="div" fit vertical end end-justified layout>
+        <div id="tabsBarDiv"   self-end auto-horizontal horizontal layout center center-justified>
+          <core-tooltip label="Page d'accueil" position="right" id="core_tooltip" class="fancy" horizontal layout>
+            <paper-icon-button icon="home" id="paper_icon_button" class="hover"></paper-icon-button>
+          </core-tooltip>
+          <paper-tabs selected="0" selectedindex="0" id="paper_tabs" class="bottom" self-end flex horizontal center layout>
+            <paper-tab id="paper_tab" inline flex center-center horizontal layout active>À PROPOS</paper-tab>
+            <paper-tab id="paper_tab1" inline flex center-center horizontal layout>MES JOURNAUX</paper-tab>
+            <paper-tab id="paper_tab1" inline flex center-center horizontal layout>CONFIGURATION</paper-tab>
+          </paper-tabs>
+          <core-field id="searchBar" horizontal layout center-justified center>
+            <input id="input" placeholder="Recherche">
+            <core-tooltip label="recherche avancé" id="advenceSearch_tooltip" class="fancy" vertical layout>
+              <paper-icon-button icon="arrow-drop-down" id="dropdownButton" class="hover"></paper-icon-button>
+            </core-tooltip>
+          </core-field>
+          <paper-button id="paper_icon_search" icon="search" center-justified center horizontal layout class="hover">
+            <core-icon icon="search" id="core_icon"></core-icon>
+          </paper-button>
+        </div>
+        </div>
+      </core-toolbar>
+      <section id="section">
+        <paper-action-dialog heading="SIGN IN" id="SignInDialog" layered="false" transition="core-transition-right" vertical layout center-justified>
+          <div id="loginDiv"  vertical layout>
+            <div class="userID">User</div>
+            <core-field id="loginField">
+              <input id="usernameInput" flex>
+            </core-field>
+            <div class="userID">Password</div>
+            <core-field id="loginField">
+              <input  id="passwordInput" >
+            </core-field>
+            <paper-checkbox label="Remember me" id="paper_checkbox"></paper-checkbox>
+          </div>
+          <paper-button dismissive>Cancel</paper-button>
+          <paper-button affirmative autofocus>Sign in</paper-button>
+        </paper-action-dialog>
+
+        <paper-action-dialog heading="SIGN UP" id="registerDialog" layered="false" transition="core-transition-top"  backdrop autoCloseDisabled vertical layout center-justified>
+          <div id="loginDiv" vertical layout>
+            <div class="userID">Username</div>
+            <paper-input-decorator class="registerInfo" label="Must contain only lowercase letters, numbers, and hyphens/underscores." error="input is required!" autoValidate>
+              <input is="core-input" required>
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">Password</div>
+            <paper-input-decorator class="registerInfo" label="Must be at least 6 characters." error="input is required!" autoValidate>
+              <input is="core-input" required>
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">Repeat password</div>
+            <paper-input-decorator class="registerInfo" error="input is required!" autoValidate>
+              <input is="core-input" required>
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">Salutation:</div>
+            <paper-input-decorator class="registerInfo">
+              <input is="core-input">
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">First Name</div>
+            <paper-input-decorator class="registerInfo" error="input is required!" autoValidate>
+              <input is="core-input" required>
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">Middle Name</div>
+            <paper-input-decorator class="registerInfo">
+              <input is="core-input">
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">Last Name</div>
+            <paper-input-decorator class="registerInfo" error="input is required!" autoValidate>
+              <input is="core-input" required>
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">Initials</div>
+            <paper-input-decorator class="registerInfo" label="ex: Joan Alice Smith = JAS">
+              <input is="core-input">
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">Gender</div>
+            <paper-dropdown-menu label="Your favorite pastry">
+              <paper-dropdown class="dropdown">
+                <core-menu class="menu">
+                  <paper-item>Male</paper-item>
+                  <paper-item>Female</paper-item>
+                  <paper-item>Other</paper-item>
+                </paper-menu>
+              </paper-dropdown>
+            </paper-dropdown-menu>
+            <br><br>
+            <div class="userID">Affiliation</div>
+            <paper-input-decorator class="registerInfo" label="(Your institution, e.g. 'Simon Fraser University')">
+              <paper-autogrow-textarea>
+               <textarea></textarea>
+              </paper-autogrow-textarea>
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID" horizontal layout center justified>Email
+              <core-tooltip label="Display privacy Statement" class="fancy" position="left" vertical layout center center-justified>
+                <paper-icon-button icon="info" onclick="togglePrivacyStatment();"></paper-icon-button>
+              </core-tooltip>
+            </div>
+            <paper-action-dialog heading="Privacy Statement" style="width:600px" id="privacyStatementDropdown">
+              <p>The names and email addresses entered in this journal site will be used exclusively for the stated purposes of this journal and will not be made available for any other purpose or to any other party.</p>
+              <paper-button dismissive>Close</paper-button>
+            </paper-action-dialog>
+            <paper-input-decorator class="registerInfo" error="input is required!" autoValidate>
+              <input is="core-input" required>
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">Confirm Email</div>
+            <paper-input-decorator class="registerInfo" error="input is required!" autoValidate>
+              <input is="core-input" required>
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID" horizontal layout center justified>ORCID iD
+              <core-tooltip label="Display more information about Orchid iD" class="fancy" position="left" vertical layout center center-justified>
+                <paper-icon-button icon="info" onclick="toggleOrchidId();"></paper-icon-button>
+              </core-tooltip>
+              <paper-action-dialog style="width:600px" heading="Orchid Id Information" id="orchidDialog">
+                <div>
+                ORCID iDs can only be assigned by
+                <a href="http://orcid.org/" target="_blank">the ORCID Registry</a>
+                . You must conform to their standards for expressing ORCID iDs, and include the full URI (eg.
+                <em>http://orcid.org/0000-0002-1825-0097</em>
+                )
+                </div>
+                <paper-button dismissive>Close</paper-button>
+              </paper-action-dialog>
+            </div>
+            <paper-input-decorator class="registerInfo">
+              <input is="core-input">
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">URL</div>
+            <paper-input-decorator class="registerInfo">
+              <input is="core-input">
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">Phone</div>
+            <paper-input-decorator class="registerInfo">
+              <input is="core-input">
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">Fax</div>
+            <paper-input-decorator class="registerInfo">
+              <input is="core-input">
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">Mailing Address</div>
+            <paper-input-decorator class="registerInfo">
+              <input is="core-input">
+            </paper-input-decorator>
+            <br><br>
+            <div class="userID">Country</div>
+            <paper-dropdown-menu label="Countries" is="auto-binding">
+              <paper-dropdown class="dropdown">
+                <core-menu class="menu">
+                  <paper-item>countries 1</paper-item>
+                  <paper-item>countries 2</paper-item>
+                  <paper-item>countries 3</paper-item>
+                </core-menu>
+              </paper-dropdown>
+            </paper-dropdown-menu>
+            <br><br>
+              <div class="userID">Bio Statement</div>
+              <paper-input-decorator class="registerInfo" label="(E.g., department and rank)">
+                <paper-autogrow-textarea>
+                 <textarea></textarea>
+                </paper-autogrow-textarea>
+              </paper-input-decorator>
+            <br><br>
+            <div class="userID">Confirmation</div>
+            <paper-checkbox style="margin:8px" label="Send me a confirmation email including my username and password"></paper-checkbox>
+            <br><br>
+            <div class="userID">Register as</div>
+            <paper-checkbox style="margin:8px" label="Reader: Notified by email on publication of an issue of the journal"></paper-checkbox>
+            <paper-checkbox style="margin:8px" label="Author: Able to submit items to the journal."></paper-checkbox>
+            <paper-checkbox style="margin:8px" label="Reviewer: Willing to conduct peer review of submissions to the site."></paper-checkbox>
+          </div>
+          <paper-button dismissive>Cancel</paper-button>
+          <paper-button affirmative autofocus>Register</paper-button>
+        </paper-action-dialog>
+      </section>
+    </core-header-panel>
+
+</body>
+</html>
