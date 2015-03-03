@@ -74,19 +74,69 @@
           </paper-tabs>
           <div vertical layout end start-justified self-start style="position:relative;top:10px;right:-1px">
             <core-field id="searchBar">
-              <input id="input" placeholder="Recherche">
+              <input id="input" placeholder="Recherche" flex>
               <core-tooltip label="recherche avancé" id="advenceSearch_tooltip" class="fancy" vertical layout>
                 <paper-icon-button icon="arrow-drop-down" id="dropdownButton" class="hover" onclick="toggleAdvanceShearch();"></paper-icon-button>
               </core-tooltip>
             </core-field>
             <core-collapse  id="collapseAdvanceShearch">
               <div class="content">
-                <div>Recherche Avancé</div>
-                <div class="separator"></div>
+                <form style="font-size:14px">
+                  <div style="font-weight:bold;">Search categories</div>
+                  <div class="separator"></div>
+                  <paper-input-decorator label="Author" floatingLabel class="registerInfo">
+                    <input is="core-input">
+                  </paper-input-decorator>
+                  <paper-input-decorator label="Title" floatingLabel class="registerInfo">
+                    <input is="core-input">
+                  </paper-input-decorator>
+                  <paper-input-decorator label="Abstract" floatingLabel class="registerInfo">
+                    <input is="core-input">
+                  </paper-input-decorator>
+                  <paper-input-decorator label="Full Text" floatingLabel class="registerInfo">
+                    <input is="core-input">
+                  </paper-input-decorator>
+                  <paper-input-decorator label="Supplementary File(s)" floatingLabel class="registerInfo">
+                    <input is="core-input">
+                  </paper-input-decorator>
+                  <br>
+                  <div style="font-weight:bold;">Publication Date</div>
+                  <div class="separator"></div>
+                  <div horizontal layout end around-justified>
+                    <div style="margin: 0.5em 0 0.25em;">From:</div>
+                    <paper-input-decorator class="registerInfo">
+                      <input type="date" is="core-input">
+                    </paper-input-decorator>
+                  </div>
+                  <div horizontal layout end around-justified>
+                    <div style="margin: 0.5em 0 0.25em;">Until:</div>
+                    <paper-input-decorator class="registerInfo">
+                      <input type="date" is="core-input">
+                    </paper-input-decorator>
+                  </div>
+                  <br>
+                  <div style="font-weight:bold;">Index terms</div>
+                  <div class="separator"></div>
+                  <paper-input-decorator label="Discipline(s)" floatingLabel class="registerInfo">
+                    <input is="core-input">
+                  </paper-input-decorator>
+                  <paper-input-decorator label="Keyword(s)" floatingLabel class="registerInfo">
+                    <input is="core-input">
+                  </paper-input-decorator>
+                  <paper-input-decorator label="Type (method/approach)" floatingLabel class="registerInfo">
+                    <input is="core-input">
+                  </paper-input-decorator>
+                  <paper-input-decorator label="Coverage" floatingLabel class="registerInfo">
+                    <input is="core-input">
+                  </paper-input-decorator>
+                  <paper-input-decorator label="All index term fields" floatingLabel class="registerInfo">
+                    <input is="core-input">
+                  </paper-input-decorator>
+                </form>
               </div>
             </core-collapse>
          </div>
-          <paper-button id="paper_icon_search" icon="search" center-justified center horizontal layout class="hover">
+          <paper-button id="paper_icon_search" icon="search" center-justified center horizontal layout onclick="closeAdvanceSearch();" class="hover">
             <core-icon icon="search" id="core_icon"></core-icon>
           </paper-button>
         </div>
@@ -104,7 +154,7 @@
             </core-field>
             <div class="userID">Password</div>
             <core-field id="loginField">
-              <input  id="passwordInput" >
+              <input type="password" id="passwordInput" flex>
             </core-field>
             <paper-checkbox label="Remember me" id="paper_checkbox"></paper-checkbox>
           </div>
@@ -199,12 +249,12 @@
               <paper-button dismissive>Close</paper-button>
             </paper-action-dialog>
             <paper-input-decorator class="registerInfo" error="input is required!" autoValidate>
-              <input is="core-input" required>
+              <input type="email" is="core-input" required>
             </paper-input-decorator>
             <br><br>
             <div class="userID">Confirm Email</div>
             <paper-input-decorator class="registerInfo" error="input is required!" autoValidate>
-              <input is="core-input" required>
+              <input type="email" is="core-input" required>
             </paper-input-decorator>
             <br><br>
             <div class="userID" horizontal layout center justified>ORCID iD
@@ -228,7 +278,7 @@
             <br><br>
             <div class="userID">URL</div>
             <paper-input-decorator class="registerInfo">
-              <input is="core-input">
+              <input type="url" is="core-input">
             </paper-input-decorator>
             <br><br>
             <div class="userID">Phone</div>

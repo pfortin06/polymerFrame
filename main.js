@@ -22,3 +22,8 @@ function toggleAdvanceShearch()
 {
   document.getElementById("collapseAdvanceShearch").toggle();
 }
+
+function closeAdvanceSearch()
+{
+  document.getElementById("collapseAdvanceShearch").opened=false;
+}

@@ -72,12 +72,13 @@ paper-tabs paper-tab::shadow #ink {
 }
 #searchBar {
   color: rgb(114, 114, 114);
-  margin: 0px 0px 0px 32px;
+  margin: 0px 0px 0px 16px;
   border-width: 1px 0px 1px 1px;
   border-style: solid;
   border-color: rgb(201, 201, 201);
   padding: 0px;
   height: 28px;
+  width:220px;
   background: white;
 }
 paper-input /deep/ .focused-underline {
@@ -189,6 +190,7 @@ html /deep/ [autofocus] {
 
 .registerInfo{
   margin:0px;
+  margin-top:1px;
   padding:0px;
 }
 
@@ -207,20 +209,20 @@ paper-item:hover{
   border-top: none;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-  width:181px;
   padding:10px;
   background:white;
   overflow:visible;
   z-index: 5;
 }
 
-core-collapse{
+#collapseAdvanceShearch{
+  width:221px;
   overflow:visible;
   z-index: 5;
 }
 
 .separator{
-  border-top:1px solid #dadada;
+  border-top:2px solid rgb(114, 114, 114);
   width:100%;
   margin-top:4px;
   height:1px;
