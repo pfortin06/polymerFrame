@@ -202,5 +202,41 @@ paper-item:hover{
   background:rgb(224, 224, 224);
 }
 
+.content{
+  border: 1px solid #dadada;
+  border-top: none;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  width:181px;
+  padding:10px;
+  background:white;
+  overflow:visible;
+  z-index: 5;
+}
 
+core-collapse{
+  overflow:visible;
+  z-index: 5;
+}
 
+.separator{
+  border-top:1px solid #dadada;
+  width:100%;
+  margin-top:4px;
+  height:1px;
+}
+
+.captchaButton{
+  border: 1px solid #dadada;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  height: 29px;
+  padding: 2px;
+  margin:0px;
+}
+.captcha{
+  border: 1px solid #dadada;
+  overflow: visible;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}

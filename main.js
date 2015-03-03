@@ -17,3 +17,8 @@ function toggleOrchidId()
 {
   document.getElementById("orchidDialog").toggle();
 }
+
+function toggleAdvanceShearch()
+{
+  document.getElementById("collapseAdvanceShearch").toggle();
+}

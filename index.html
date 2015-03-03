@@ -12,6 +12,9 @@
   <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
 
   <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/core-icons/av-icons.html">
+  <link rel="import" href="bower_components/core-icon/core-icon.html">
+  <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
   <link rel="import" href="bower_components/font-roboto/roboto.html">
   <link rel="import" href="bower_components/paper-button/paper-button.html">
@@ -25,7 +28,6 @@
   <link rel="import" href="bower_components/paper-dialog/paper-dialog-transition.html">
   <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
   <link rel="import" href="bower_components/core-field/core-field.html">
-  <link rel="import" href="bower_components/core-icon/core-icon.html">
   <link rel="import" href="bower_components/core-input/core-input.html">
   <link rel="import" href="bower_components/core-item/core-item.html">
   <link rel="import" href="bower_components/core-menu/core-menu.html">
@@ -40,6 +42,7 @@
   <link rel="import" href="bower_components/paper-dropdown/paper-dropdown.html">
   <link rel="import" href="bower_components/paper-item/paper-item.html">
   <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+  <link rel="import" href="bower_components/core-image/core-image.html">
 
   <link rel="stylesheet" href="styles.css">
 
@@ -69,19 +72,30 @@
             <paper-tab id="paper_tab1" inline flex center-center horizontal layout>MES JOURNAUX</paper-tab>
             <paper-tab id="paper_tab1" inline flex center-center horizontal layout>CONFIGURATION</paper-tab>
           </paper-tabs>
-          <core-field id="searchBar" horizontal layout center-justified center>
-            <input id="input" placeholder="Recherche">
-            <core-tooltip label="recherche avancé" id="advenceSearch_tooltip" class="fancy" vertical layout>
-              <paper-icon-button icon="arrow-drop-down" id="dropdownButton" class="hover"></paper-icon-button>
-            </core-tooltip>
-          </core-field>
+          <div vertical layout end start-justified self-start style="position:relative;top:10px;right:-1px">
+            <core-field id="searchBar">
+              <input id="input" placeholder="Recherche">
+              <core-tooltip label="recherche avancé" id="advenceSearch_tooltip" class="fancy" vertical layout>
+                <paper-icon-button icon="arrow-drop-down" id="dropdownButton" class="hover" onclick="toggleAdvanceShearch();"></paper-icon-button>
+              </core-tooltip>
+            </core-field>
+            <core-collapse  id="collapseAdvanceShearch">
+              <div class="content">
+                <div>Recherche Avancé</div>
+                <div class="separator"></div>
+              </div>
+            </core-collapse>
+         </div>
           <paper-button id="paper_icon_search" icon="search" center-justified center horizontal layout class="hover">
             <core-icon icon="search" id="core_icon"></core-icon>
           </paper-button>
         </div>
+
+        </div>
         </div>
       </core-toolbar>
       <section id="section">
+
         <paper-action-dialog heading="SIGN IN" id="SignInDialog" layered="false" transition="core-transition-right" vertical layout center-justified>
           <div id="loginDiv"  vertical layout>
             <div class="userID">User</div>
@@ -115,7 +129,24 @@
               <input is="core-input" required>
             </paper-input-decorator>
             <br><br>
-            <div class="userID">Salutation:</div>
+            <div class="userID">Validation</div>
+            <paper-input-decorator class="registerInfo" label="Please enter the letters as they appear in the image below." error="input is required!" autoValidate>
+              <input is="core-input" required>
+            </paper-input-decorator>
+            <br>
+            <div id="div" horizontal layout center center-justified>
+              <core-image class="captcha" self-center src="./captcha.png"></core-image>
+              <div id="div" style="height: 58px;" vertical layout center center-justified>
+                <core-tooltip class="fancy" label="Nouvelle Image" position="right">
+                  <core-icon-Button class="captchaButton" icon="autorenew"></core-icon-Button>
+                </core-tooltip>
+                <core-tooltip class="fancy" label="lire à haute voix" position="right">
+                  <core-icon-Button class="captchaButton" icon="av:volume-up"></core-icon-Button>
+                </core-tooltip>
+              </div>
+            </div>
+            <br><br>
+            <div class="userID">Salutation</div>
             <paper-input-decorator class="registerInfo">
               <input is="core-input">
             </paper-input-decorator>
