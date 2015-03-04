@@ -242,3 +242,6 @@ paper-item:hover{
   border-bottom-left-radius: 2px;
   border-top-left-radius: 2px;
 }
+paper-tab:hover{
+  cursor:pointer;
+}
