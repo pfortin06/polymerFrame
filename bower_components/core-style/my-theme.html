@@ -6,11 +6,19 @@
     The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
     Code distributed by Google as part of the polymer project is also
     subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
---><html><head><link rel="import" href="core-style.html">
+-->
+<link rel="import" href="core-style.html">
 
-<script src="my-theme.html.0.js"></script>
+<script>
 
-</head><body><core-style id="main">
+  CoreStyle.g.theme = {
+    colorOne: '#abcdef',
+    colorTwo: '#123456',
+    colorThree: '#224433'
+  }
+</script>
+
+<core-style id="main">
   body {
     font-family: sans-serif;
   }
@@ -63,4 +71,3 @@
   }
 
 </core-style>
-</body></html>

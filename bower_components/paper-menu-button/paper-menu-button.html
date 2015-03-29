@@ -5,7 +5,8 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
---><!--
+-->
+<!--
 
 `paper-menu-button` works together with a button and a `paper-dropdown` to
 implement a button that displays a drop-down when tapped on.
@@ -30,11 +31,12 @@ Example:
 @element paper-menu-button
 @extends core-dropdown-base
 @status unstable
---><html><head><link href="../polymer/polymer.html" rel="import">
+-->
+<link href="../polymer/polymer.html" rel="import">
 <link href="../core-a11y-keys/core-a11y-keys.html" rel="import">
 <link href="../core-dropdown/core-dropdown-base.html" rel="import">
 
-</head><body><polymer-element name="paper-menu-button" extends="core-dropdown-base" relative="">
+<polymer-element name="paper-menu-button" extends="core-dropdown-base" relative>
 <template>
 
   <style>
@@ -58,6 +60,20 @@ Example:
   <content></content>
 
 </template>
-<script src="paper-menu-button.html.0.js"></script>
+<script>
+
+  Polymer({
+
+    overlayListeners: {
+      'core-overlay-open': 'openAction',
+      'core-activate': 'activateAction'
+    },
+
+    activateAction: function() {
+      this.opened = false;
+    }
+
+  });
+
+</script>
 </polymer-element>
-</body></html>

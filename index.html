@@ -72,7 +72,16 @@
             <paper-tab id="paper_tab" inline flex center-center horizontal layout active>ABOUT</paper-tab>
             <paper-tab id="paper_tab1" inline flex center-center horizontal layout>JOURNALS</paper-tab>
             <paper-tab id="paper_tab1" inline flex center-center horizontal layout>SETTINGS</paper-tab>
-          </paper-tabs>
+          </paper-tabs> 
+          <core-dropdown-menu label="Viewing as">
+            <core-dropdown class="dropdown">
+              <core-menu>
+                  <core-item>Auteur</core-item>
+                  <core-item>Editor</core-item>
+                  <core-item>Reviewer</core-item>
+              </core-menu>
+            </core-dropdown>
+          </core-dropdown-menu>
           <div vertical layout end start-justified self-start style="position:relative;top:10px;right:-1px">
             <core-field id="searchBar">
               <input id="input" placeholder="Search" flex>
@@ -80,6 +89,8 @@
                 <paper-icon-button icon="arrow-drop-down" id="dropdownButton" class="hover" onclick="toggleAdvanceShearch();"></paper-icon-button>
               </core-tooltip>
             </core-field>
+            
+            <!--Advance search-->
             <paper-shadow z="2" style="z-index: 5;">
             <core-collapse  id="collapseAdvanceShearch">
               <div class="content">
@@ -149,6 +160,7 @@
       </core-toolbar>
       <section id="section">
 
+        <!--Sign in dialog-->
         <paper-action-dialog heading="SIGN IN" id="SignInDialog" layered="false" transition="core-transition-right" vertical layout center-justified>
           <div id="loginDiv"  vertical layout>
             <div class="userID">User</div>
@@ -164,7 +176,8 @@
           <paper-button dismissive>Cancel</paper-button>
           <paper-button affirmative autofocus>Sign in</paper-button>
         </paper-action-dialog>
-
+        
+        <!--Sign up dialog-->
         <paper-action-dialog heading="SIGN UP" id="registerDialog" layered="false" transition="core-transition-top"  backdrop autoCloseDisabled vertical layout center-justified>
           <div id="loginDiv" vertical layout>
             <div class="userID">Username</div>

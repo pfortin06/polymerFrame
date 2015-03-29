@@ -40,10 +40,12 @@ paper-button.hover:hover {
 #paper_tabs {
   color: rgb(114, 114, 114);
   font-weight: bold;
+  font-size: 12pt;
   height: 50px;
 }
 paper-tabs::shadow #selectionBar {
   background-color: rgb(114, 114, 114);
+  height:4px;
 }
 paper-tabs paper-tab::shadow #ink {
   color: rgb(218, 218, 218);
@@ -72,7 +74,7 @@ paper-tabs paper-tab::shadow #ink {
 }
 #searchBar {
   color: rgb(114, 114, 114);
-  margin: 0px 0px 0px 16px;
+  margin: 0px 0px 0px 8px;
   border-width: 1px 0px 1px 1px;
   border-style: solid;
   border-color: rgb(201, 201, 201);
@@ -245,3 +247,19 @@ paper-item:hover{
 paper-tab:hover{
   cursor:pointer;
 }
+
+core-dropdown-menu{
+  color: rgb(114, 114, 114);
+  margin: 8px;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: rgb(201, 201, 201);
+  padding: 0px;
+  height: 28px;
+  width: 120px;
+  background: white;
+  font-size : 14pt;
+}
+
+
+
